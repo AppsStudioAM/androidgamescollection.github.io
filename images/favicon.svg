@@ -1,68 +1,101 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <defs>
-    <!-- Dark gaming background -->
+    <!-- Dark gaming background gradient -->
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#0a0a0a"/>
-      <stop offset="50%" style="stop-color:#1a0a2e"/>
-      <stop offset="100%" style="stop-color:#0a0a0a"/>
+      <stop offset="100%" style="stop-color:#1a0030"/>
     </linearGradient>
-    <!-- Neon gradient for text -->
-    <linearGradient id="neon" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff0080"/>
-      <stop offset="50%" style="stop-color:#00ffff"/>
+    <!-- Neon text gradient -->
+    <linearGradient id="neon" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff003c"/>
+      <stop offset="50%" style="stop-color:#ff00ff"/>
+      <stop offset="100%" style="stop-color:#00f0ff"/>
+    </linearGradient>
+    <!-- Cyan gradient -->
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00f0ff"/>
       <stop offset="100%" style="stop-color:#7b2fff"/>
     </linearGradient>
+    <!-- AM gradient -->
+    <linearGradient id="amGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff003c"/>
+      <stop offset="50%" style="stop-color:#ff00ff"/>
+      <stop offset="100%" style="stop-color:#00f0ff"/>
+    </linearGradient>
     <!-- Glow filter -->
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
-      <feFlood flood-color="#00ffff" flood-opacity="0.8"/>
-      <feComposite in2="coloredBlur" operator="in"/>
-      <feMerge>
-        <feMergeNode/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <!-- Heavy glow -->
+    <filter id="bigGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
     </filter>
     <!-- Border glow -->
-    <filter id="borderGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="2" result="blur"/>
-      <feFlood flood-color="#ff0080" flood-opacity="0.7"/>
-      <feComposite in2="blur" operator="in"/>
-      <feMerge>
-        <feMergeNode/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <filter id="edgeGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3"/>
+    </filter>
+    <!-- Small glow -->
+    <filter id="smGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
     </filter>
   </defs>
-  
-  <!-- Dark background -->
-  <rect width="100" height="100" rx="16" fill="url(#bg)"/>
-  
-  <!-- Glowing border -->
-  <rect x="3" y="3" width="94" height="94" rx="13" fill="none" stroke="url(#neon)" stroke-width="2.5" filter="url(#borderGlow)"/>
-  
-  <!-- Gaming corner brackets -->
-  <path d="M18 5 L5 5 L5 18" fill="none" stroke="#00ffff" stroke-width="3" stroke-linecap="round" filter="url(#glow)"/>
-  <path d="M82 5 L95 5 L95 18" fill="none" stroke="#ff0080" stroke-width="3" stroke-linecap="round"/>
-  <path d="M18 95 L5 95 L5 82" fill="none" stroke="#ff0080" stroke-width="3" stroke-linecap="round"/>
-  <path d="M82 95 L95 95 L95 82" fill="none" stroke="#00ffff" stroke-width="3" stroke-linecap="round" filter="url(#glow)"/>
-  
-  <!-- Main AM text (TOP) -->
-  <text x="50" y="52" font-family="Arial Black, Impact" font-size="42" font-weight="900" text-anchor="middle" fill="url(#neon)" filter="url(#glow)">AM</text>
-  
-  <!-- Decorative line -->
-  <line x1="20" y1="62" x2="80" y2="62" stroke="url(#neon)" stroke-width="1.5" opacity="0.7"/>
-  
-  <!-- APPS STUDIO text (BOTTOM) -->
-  <text x="50" y="78" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#00ffff" letter-spacing="2" filter="url(#glow)">APPS STUDIO</text>
-  
-  <!-- Small gaming dots -->
-  <circle cx="15" cy="50" r="2" fill="#ff0080" opacity="0.8"/>
-  <circle cx="85" cy="50" r="2" fill="#00ffff" opacity="0.8"/>
-  
-  <!-- Scanlines -->
-  <g opacity="0.04">
-    <line x1="0" y1="25" x2="100" y2="25" stroke="#fff" stroke-width="1"/>
-    <line x1="0" y1="50" x2="100" y2="50" stroke="#fff" stroke-width="1"/>
-    <line x1="0" y1="75" x2="100" y2="75" stroke="#fff" stroke-width="1"/>
-  </g>
+
+  <!-- Background -->
+  <rect width="100" height="100" rx="14" fill="url(#bg)"/>
+
+  <!-- Grid pattern -->
+  <line x1="0" y1="20" x2="100" y2="20" stroke="#fff" stroke-width="0.2" opacity="0.04"/>
+  <line x1="0" y1="40" x2="100" y2="40" stroke="#fff" stroke-width="0.2" opacity="0.04"/>
+  <line x1="0" y1="60" x2="100" y2="60" stroke="#fff" stroke-width="0.2" opacity="0.04"/>
+  <line x1="0" y1="80" x2="100" y2="80" stroke="#fff" stroke-width="0.2" opacity="0.04"/>
+  <line x1="20" y1="0" x2="20" y2="100" stroke="#fff" stroke-width="0.2" opacity="0.04"/>
+  <line x1="40" y1="0" x2="40" y2="100" stroke="#fff" stroke-width="0.2" opacity="0.04"/>
+  <line x1="60" y1="0" x2="60" y2="100" stroke="#fff" stroke-width="0.2" opacity="0.04"/>
+  <line x1="80" y1="0" x2="80" y2="100" stroke="#fff" stroke-width="0.2" opacity="0.04"/>
+
+  <!-- Angled accent lines -->
+  <line x1="0" y1="75" x2="100" y2="65" stroke="#ff003c" stroke-width="0.5" opacity="0.3"/>
+  <line x1="0" y1="80" x2="100" y2="70" stroke="#00f0ff" stroke-width="0.3" opacity="0.2"/>
+  <line x1="0" y1="25" x2="100" y2="30" stroke="#ff00ff" stroke-width="0.4" opacity="0.2"/>
+
+  <!-- Corner accents -->
+  <polygon points="0,14 0,0 14,0" fill="#ff003c" opacity="0.6"/>
+  <polygon points="86,100 100,100 100,86" fill="#00f0ff" opacity="0.6"/>
+  <polygon points="100,14 100,0 86,0" fill="#ff00ff" opacity="0.3"/>
+  <polygon points="0,86 0,100 14,100" fill="#ff00ff" opacity="0.3"/>
+
+  <!-- Neon border glow -->
+  <rect x="3" y="3" width="94" height="94" rx="12" fill="none" stroke="#ff003c" stroke-width="1.5" opacity="0.15" filter="url(#edgeGlow)"/>
+  <rect x="3" y="3" width="94" height="94" rx="12" fill="none" stroke="url(#neon)" stroke-width="1" opacity="0.5"/>
+
+  <!-- 1. "Apps" top -->
+  <text x="50" y="24" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#00f0ff" opacity="0.9" letter-spacing="4" filter="url(#smGlow)">Apps</text>
+
+  <!-- Divider line 1 -->
+  <line x1="18" y1="29" x2="82" y2="29" stroke="url(#neon)" stroke-width="0.5" opacity="0.4"/>
+
+  <!-- 2. "Studio" middle -->
+  <text x="50" y="48" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="url(#cyanGrad)" opacity="0.9" letter-spacing="5" filter="url(#smGlow)">Studio</text>
+
+  <!-- Divider line 2 -->
+  <line x1="15" y1="53" x2="85" y2="53" stroke="url(#neon)" stroke-width="0.5" opacity="0.4"/>
+
+  <!-- 3. "AM" big bottom — glow shadow -->
+  <text x="50" y="84" font-family="Arial Black, Impact, sans-serif" font-size="40" font-weight="900" text-anchor="middle" fill="url(#amGrad)" filter="url(#bigGlow)" opacity="0.7">AM</text>
+
+  <!-- 3. "AM" main text -->
+  <text x="50" y="84" font-family="Arial Black, Impact, sans-serif" font-size="40" font-weight="900" text-anchor="middle" fill="url(#amGrad)" filter="url(#glow)" letter-spacing="4">AM</text>
+
+  <!-- 3. "AM" highlight -->
+  <text x="50" y="84" font-family="Arial Black, Impact, sans-serif" font-size="40" font-weight="900" text-anchor="middle" fill="#ffffff" opacity="0.15" letter-spacing="4">AM</text>
+
+  <!-- Decorative dots -->
+  <circle cx="10" cy="50" r="1" fill="#ff003c" opacity="0.5"/>
+  <circle cx="90" cy="50" r="1" fill="#00f0ff" opacity="0.5"/>
+  <circle cx="50" cy="8" r="0.8" fill="#ff00ff" opacity="0.4"/>
+
+  <!-- Bottom accent bar -->
+  <rect x="25" y="92" width="50" height="1.5" rx="1" fill="url(#neon)" opacity="0.3" filter="url(#smGlow)"/>
 </svg>
