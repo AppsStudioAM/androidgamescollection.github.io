@@ -1,10 +1,68 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <defs>
-    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#00f0ff"/>
+    <!-- Dark gaming background -->
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0a"/>
+      <stop offset="50%" style="stop-color:#1a0a2e"/>
+      <stop offset="100%" style="stop-color:#0a0a0a"/>
+    </linearGradient>
+    <!-- Neon gradient for text -->
+    <linearGradient id="neon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff0080"/>
+      <stop offset="50%" style="stop-color:#00ffff"/>
       <stop offset="100%" style="stop-color:#7b2fff"/>
     </linearGradient>
+    <!-- Glow filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feFlood flood-color="#00ffff" flood-opacity="0.8"/>
+      <feComposite in2="coloredBlur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <!-- Border glow -->
+    <filter id="borderGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feFlood flood-color="#ff0080" flood-opacity="0.7"/>
+      <feComposite in2="blur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
-  <rect width="100" height="100" rx="22" fill="url(#g)"/>
-  <text x="50" y="68" font-family="Arial Black" font-size="50" font-weight="900" text-anchor="middle" fill="#0a0a1a">GF</text>
+  
+  <!-- Dark background -->
+  <rect width="100" height="100" rx="16" fill="url(#bg)"/>
+  
+  <!-- Glowing border -->
+  <rect x="3" y="3" width="94" height="94" rx="13" fill="none" stroke="url(#neon)" stroke-width="2.5" filter="url(#borderGlow)"/>
+  
+  <!-- Gaming corner brackets -->
+  <path d="M18 5 L5 5 L5 18" fill="none" stroke="#00ffff" stroke-width="3" stroke-linecap="round" filter="url(#glow)"/>
+  <path d="M82 5 L95 5 L95 18" fill="none" stroke="#ff0080" stroke-width="3" stroke-linecap="round"/>
+  <path d="M18 95 L5 95 L5 82" fill="none" stroke="#ff0080" stroke-width="3" stroke-linecap="round"/>
+  <path d="M82 95 L95 95 L95 82" fill="none" stroke="#00ffff" stroke-width="3" stroke-linecap="round" filter="url(#glow)"/>
+  
+  <!-- Main AM text (TOP) -->
+  <text x="50" y="52" font-family="Arial Black, Impact" font-size="42" font-weight="900" text-anchor="middle" fill="url(#neon)" filter="url(#glow)">AM</text>
+  
+  <!-- Decorative line -->
+  <line x1="20" y1="62" x2="80" y2="62" stroke="url(#neon)" stroke-width="1.5" opacity="0.7"/>
+  
+  <!-- APPS STUDIO text (BOTTOM) -->
+  <text x="50" y="78" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#00ffff" letter-spacing="2" filter="url(#glow)">APPS STUDIO</text>
+  
+  <!-- Small gaming dots -->
+  <circle cx="15" cy="50" r="2" fill="#ff0080" opacity="0.8"/>
+  <circle cx="85" cy="50" r="2" fill="#00ffff" opacity="0.8"/>
+  
+  <!-- Scanlines -->
+  <g opacity="0.04">
+    <line x1="0" y1="25" x2="100" y2="25" stroke="#fff" stroke-width="1"/>
+    <line x1="0" y1="50" x2="100" y2="50" stroke="#fff" stroke-width="1"/>
+    <line x1="0" y1="75" x2="100" y2="75" stroke="#fff" stroke-width="1"/>
+  </g>
 </svg>
